@@ -28,9 +28,18 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+# Webpack loader
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'BUNDLE_DIR_NAME': '../../dist',
+        'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats.json'),
+    }
+}
+
 # Application definition
 
 INSTALLED_APPS = [
+    'webpack_loader',
     'events.apps.EventsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -55,7 +64,7 @@ ROOT_URLCONF = 'djangoserver.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        # 'DIRS': [ '/Users/deniztetik/Documents/garden/djangoserver/djangoserver/templates/',],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -64,7 +73,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
-        },
+        }
     },
 ]
 

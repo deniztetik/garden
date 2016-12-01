@@ -30,9 +30,10 @@
   },
   "homepage": "https://github.com/logosghost/garden#readme",
   "devDependencies": {
+    "babel": "^6.5.2",
     "babel-cli": "^6.16.0",
     "babel-core": "^6.17.0",
-    "babel-loader": "^6.2.5",
+    "babel-loader": "^6.2.8",
     "babel-preset-es2015": "^6.16.0",
     "babel-preset-react": "^6.16.0",
     "babel-preset-react-hmre": "^1.1.1",
@@ -44,6 +45,7 @@
     "node-libs-browser": "^1.0.0",
     "node-sass": "^3.12.1",
     "nodemon": "^1.11.0",
+    "react": "^15.4.1",
     "react-hot-loader": "^3.0.0-beta.6",
     "redux-logger": "^2.7.0",
     "sass-loader": "^4.0.2",
@@ -51,6 +53,7 @@
     "strip-loader": "^0.1.2",
     "webpack": "^1.13.3",
     "webpack-browser-plugin": "^1.0.12",
+    "webpack-bundle-tracker": "^0.1.0",
     "webpack-dev-middleware": "^1.8.4",
     "webpack-dev-server": "^1.16.2",
     "webpack-hot-middleware": "^2.13.0"

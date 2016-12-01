@@ -1,23 +1,22 @@
 const webpack = require('webpack');
 const path = require('path');
+const BundleTracker = require('webpack-bundle-tracker');
 
 module.exports = {
+
   devtool: 'inline-source-map',
-  // context: __dirname + "/client",
-  entry: [
-    "webpack-hot-middleware",
-    "webpack/hot/only-dev-server",
-    path.join(__dirname, "client/main.js"),
-  ],
+  context: __dirname,
+  entry: "./client/main.js",
   output: {
     filename: "bundle.js",
-    path: path.resolve(__dirname, "./dist"),
-    // publicPath: "/static/",
+    path: path.resolve("./dist"),
+    filename: "[name]-[hash].js",
   },
   plugins: [
-    new webpack.optimize.OccurrenceOrderPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
+    // new webpack.optimize.OccurrenceOrderPlugin(),
+    // new webpack.HotModuleReplacementPlugin(),
+    // new webpack.NoErrorsPlugin(),
+    new BundleTracker({filename: './webpack-stats.json'})
   ],
   watch: true,
   module: {
