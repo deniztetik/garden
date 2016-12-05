@@ -13,16 +13,16 @@ class Navigation extends React.Component {
         <nav className="nav-container">
           <div>LOGO HERE</div>
           <div>
-            <Link to={`/`}>Dashboard</Link>
+            <Link to={`/home`}>Dashboard</Link>
           </div>
           <div>
-            <Link to={`/register`}>Register</Link>
+            <Link to={`/home/register`}>Register</Link>
           </div>
           <div>
-            <Link to={`/host`}>Create</Link>
+            <Link to={`/home/host`}>Create</Link>
           </div>
           <div>
-            <Link to={`/settings`}>Settings</Link>
+            <Link to={`/home/settings`}>Settings</Link>
           </div>
         </nav>
       </div>

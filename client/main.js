@@ -20,12 +20,12 @@ const app = document.getElementById('app');
 const router = (
   <Provider store={store}>
     <Router history={browserHistory}>
-      <Route path="/" component={App}>
+      <Route path="/home" component={App}>
       <IndexRoute component={Dashboard} />
-        <Route path="register" component={Register}></Route>
-        <Route path="dashboard" component={Dashboard}></Route>
-        <Route path="host" component={HostEvent}></Route>
-        <Route path="settings" component={Settings}></Route>
+        <Route path="/home/register" component={Register}></Route>
+        <Route path="/home/dashboard" component={Dashboard}></Route>
+        <Route path="/home/host" component={HostEvent}></Route>
+        <Route path="/home/settings" component={Settings}></Route>
       </Route>
     </Router>
   </Provider>

@@ -3,9 +3,13 @@ var webpack = require('webpack');
 var BundleTracker = require('webpack-bundle-tracker');
 
 module.exports = {
+    devtool: 'inline-source-map',
+
   context: __dirname,
 
-  entry: './client/main', //entry point of our app. assets/js/index.js should require other js modules and dependencies it needs
+  entry: ["webpack-hot-middleware",
+         "webpack/hot/only-dev-server",
+         './client/main'], //entry point of our app. assets/js/index.js should require other js modules and dependencies it needs
 
   output: {
     path: path.resolve('./assets/bundles'),
@@ -14,11 +18,29 @@ module.exports = {
 
   plugins: [
     new BundleTracker({filename: './webpack-stats.json'}),
+    new webpack.optimize.OccurrenceOrderPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin(),
   ],
 
   module: {
+    preloaders: [
+          {
+            test: [/\.js$/, /\.jsx$/],
+            exclude: /node_modules/,
+            loader: 'jshint-loader'
+          }
+        ],
     loaders: [
-      { test: /\.jsx?$/, exclude: /node_nodules/, loader: 'babel-loader'}, // to transform JSX into JS
+            {
+              test: [/\.js$/, /\.jsx$/],
+              exclude: /node_modules/,
+              loader: 'babel-loader',
+              query: {
+                cacheDirectory: true,
+                presets: ['react-hmre', 'react', 'es2015'],
+              }
+            },
       {
               test: /\.scss$/,
               loaders: ['style', 'css', 'sass']
@@ -30,6 +52,10 @@ module.exports = {
     modulesDirectories: ['node_modules'],
     extensions: ['', '.js', '.jsx']
   },
+    devServer: {
+      hot: true,
+      historyApiFallback: true,
+    },
 };
 
 
